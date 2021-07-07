@@ -1,4 +1,4 @@
-apply plugin: android.support.SupportLibraryPlugin
+apply plugin: gsc.support.SupportLibraryPlugin
 archivesBaseName = 'support-compat'
 
 dependencies {

@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="gsc.support.v4.content.FileProvider"
             android:authorities="moocow"
             android:exported="false"
             android:grantUriPermissions="true">
