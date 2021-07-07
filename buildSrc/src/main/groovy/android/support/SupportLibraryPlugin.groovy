@@ -44,7 +44,7 @@ class SupportLibraryPlugin implements Plugin<Project> {
                 project.extensions.create("supportLibrary", SupportLibraryExtension, project);
 
         project.apply(ImmutableMap.of("plugin", "com.android.library"));
-        project.apply(ImmutableMap.of("plugin", ErrorProneBasePlugin.class));
+//        project.apply(ImmutableMap.of("plugin", ErrorProneBasePlugin.class));
 
         LibraryExtension library = project.extensions.findByType(LibraryExtension.class);
 
@@ -175,23 +175,23 @@ class SupportLibraryPlugin implements Plugin<Project> {
             uploadTask.dependsOn project.tasks.lint
         }
 
-        final ErrorProneToolChain toolChain = ErrorProneToolChain.create(project);
-        library.getBuildTypes().create("errorProne")
-        library.getLibraryVariants().all(new Action<LibraryVariant>() {
-            @Override
-            void execute(LibraryVariant libraryVariant) {
-                if (libraryVariant.getBuildType().getName().equals("errorProne")) {
-                    libraryVariant.getJavaCompile().setToolChain(toolChain);
-
-                    libraryVariant.getJavaCompile().options.compilerArgs += [
-                            '-XDcompilePolicy=simple', // Workaround for b/36098770
-
-                            // Enforce the following checks.
-                            '-Xep:MissingOverride:ERROR',
-                            '-Xep:ClassNewInstance:ERROR',
-                    ]
-                }
-            }
-        })
+//        final ErrorProneToolChain toolChain = ErrorProneToolChain.create(project);
+//        library.getBuildTypes().create("errorProne")
+//        library.getLibraryVariants().all(new Action<LibraryVariant>() {
+//            @Override
+//            void execute(LibraryVariant libraryVariant) {
+//                if (libraryVariant.getBuildType().getName().equals("errorProne")) {
+//                    libraryVariant.getJavaCompile().setToolChain(toolChain);
+//
+//                    libraryVariant.getJavaCompile().options.compilerArgs += [
+//                            '-XDcompilePolicy=simple', // Workaround for b/36098770
+//
+//                            // Enforce the following checks.
+//                            '-Xep:MissingOverride:ERROR',
+//                            '-Xep:ClassNewInstance:ERROR',
+//                    ]
+//                }
+//            }
+//        })
     }
 }
