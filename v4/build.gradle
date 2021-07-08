@@ -2,6 +2,7 @@ apply plugin: gsc.support.SupportLibraryPlugin
 archivesBaseName = 'support-v4'
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':support-compat')
     compile project(':support-media-compat')
     compile project(':support-core-utils')
